@@ -79,8 +79,6 @@ resource "aws_route_table_association" "public" {
 
 resource "aws_eip" "nat" {
   domain     = "vpc"
-  depends_on = [aws_internet_gateway.gw] # Recommended to wait for IGW
-
   tags = {
     Name = "${var.project}-${var.environment}-nat-eip"
   }
@@ -92,7 +90,6 @@ resource "aws_nat_gateway" "main" {
   tags = {
     Name = "${var.project}-${var.environment}-nat-gw"
   }
-  depends_on = [aws_internet_gateway.gw]
 }
 
 ###################### Creating Private route table with NAT gateway and with association of private subnets #############################################################
