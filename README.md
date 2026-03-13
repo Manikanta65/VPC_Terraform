@@ -1,8 +1,11 @@
 Please configure aws before you excute the files
 
-Commands to execte
+*****Commands to execte****
 
-aws configure
+aws configure 
+
 terraform init
+
 terraform plan
+
 terraform apply -auto-approve
